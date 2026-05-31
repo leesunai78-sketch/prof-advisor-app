@@ -3,10 +3,10 @@ import { useState } from "react";
 import { getSettings, getProfile, getLogs } from "@/lib/storage";
 
 const DECODE_TYPES = [
-  { id: "말해석", label: "말 해석", placeholder: "교수님이 하신 말을 그대로 입력하세요\n예: '이 부분은 좀 더 다듬어야 할 것 같다'" },
-  { id: "행동반응", label: "행동·반응 해석", placeholder: "교수님의 행동이나 반응을 설명하세요\n예: '메일 보낸 지 3일이 지났는데 답장이 없어요'" },
-  { id: "분위기", label: "분위기·감정 해석", placeholder: "오늘 느낀 분위기나 교수님 상태를 설명하세요\n예: '오늘 표정이 굳어있었고 말씀이 평소보다 짧았어요'" },
-  { id: "타이밍", label: "타이밍 판단", placeholder: "지금 해도 되는지 판단이 필요한 상황을 설명하세요\n예: '지금 기한 연장 부탁드려도 될까요?'" },
+  { id: "말해석", label: "말 해석", placeholder: "그녀가 한 말을 그대로 입력하세요\n예: '이 부분은 좀 더 다듬어야 할 것 같다'" },
+  { id: "행동반응", label: "행동·반응 해석", placeholder: "그녀의 행동이나 반응을 설명하세요\n예: '메일 보낸 지 3일이 지났는데 답장이 없어요'" },
+  { id: "분위기", label: "분위기·감정 해석", placeholder: "오늘 느낀 분위기나 그녀의 상태를 설명하세요\n예: '오늘 표정이 굳어있었고 말이 평소보다 짧았어요'" },
+  { id: "타이밍", label: "타이밍 판단", placeholder: "지금 해도 되는지 판단이 필요한 상황을 설명하세요\n예: '지금 기한 연장 부탁해도 될까요?'" },
 ];
 
 interface DecodeResult {
@@ -40,9 +40,9 @@ export default function DecodeTab() {
     const recentLogs = logs.map((l) => `[${l.type}] ${l.summary || l.content}`).join("\n");
 
     const systemPrompt = `당신은 대학원생의 지도교수 관계를 도와주는 AI입니다.
-아래 교수님 정보와 최근 기록을 바탕으로 상황을 분석해주세요.
+아래 그녀에 대한 정보와 최근 기록을 바탕으로 상황을 분석해주세요.
 
-[교수님 프로필]
+[그녀의 프로필]
 이름: ${profile.name || "미입력"}
 커뮤니케이션 스타일: ${profile.commStyle || "미입력"}
 기분 변화 패턴: ${profile.moodPattern || "미입력"}
@@ -99,8 +99,8 @@ ${recentLogs || "없음"}
       <div className="rounded-2xl border p-4" style={{ background: "var(--primary-light)", borderColor: "var(--primary)" }}>
         <p className="text-sm font-semibold mb-1" style={{ color: "var(--primary)" }}>🔍 AI 해석</p>
         <p className="text-xs" style={{ color: "var(--primary)" }}>
-          교수님의 말, 행동, 분위기를 입력하면 AI가 의미와 대응 방향을 알려드립니다.
-          교수님 프로필과 기록 저장소에 데이터가 많을수록 더 정확해집니다.
+          그녀의 말, 행동, 분위기를 입력하면 AI가 의미와 대응 방향을 알려드립니다.
+          그녀의 프로필과 기록 저장소에 데이터가 많을수록 더 정확해집니다.
         </p>
       </div>
 
@@ -150,7 +150,7 @@ ${recentLogs || "없음"}
           <div className="flex items-center gap-3">
             <span className="text-3xl">{result.temperatureEmoji}</span>
             <div>
-              <p className="text-xs font-medium" style={{ color: "var(--muted)" }}>교수님 감정 온도</p>
+              <p className="text-xs font-medium" style={{ color: "var(--muted)" }}>그녀의 감정 온도</p>
               <p className="font-semibold">{result.temperature}</p>
             </div>
           </div>

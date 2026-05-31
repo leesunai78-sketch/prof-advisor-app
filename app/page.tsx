@@ -7,7 +7,7 @@ import ComposeTab from "@/components/ComposeTab";
 import SettingsModal from "@/components/SettingsModal";
 
 const TABS = [
-  { id: "profile", label: "교수님 프로필", emoji: "👤" },
+  { id: "profile", label: "그녀의 프로필", emoji: "👤" },
   { id: "log", label: "기록 저장소", emoji: "📋" },
   { id: "decode", label: "AI 해석", emoji: "🔍" },
   { id: "compose", label: "AI 작성", emoji: "✏️" },

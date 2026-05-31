@@ -71,7 +71,7 @@ export default function LogTab() {
 
     const { apiKey } = getSettings();
     const profile = getProfile();
-    const profileStr = `이름: ${profile.name}, 전공: ${profile.field}, 스타일: ${profile.commStyle}, 지뢰: ${profile.landmines}`;
+    const profileStr = `이름: ${profile.name}, 전공: ${profile.field}, 그녀의 스타일: ${profile.commStyle}, 지뢰: ${profile.landmines}`;
 
     let type: LogType = "기타";
     let tags: string[] = [];
@@ -122,13 +122,13 @@ export default function LogTab() {
       <div className="rounded-2xl border p-4 space-y-3" style={{ background: "var(--card)", borderColor: "var(--border)" }}>
         <p className="text-sm font-semibold">📋 기록 추가</p>
         <p className="text-xs" style={{ color: "var(--muted)" }}>
-          교수님의 말, 카톡 내용, 오늘 있었던 일, 느낀 점 — 뭐든 그냥 던져주세요. AI가 알아서 분류합니다.
+          그녀의 말, 카톡 내용, 오늘 있었던 일, 느낀 점 — 뭐든 그냥 던져주세요. AI가 알아서 분류합니다.
         </p>
         <textarea
           rows={4}
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="예시:&#10;• 오늘 교수님이 '다음 주까지 자료 정리해와'라고 하셨다&#10;• 카톡으로 '잠깐 들러'라고만 오셨는데 뭔 뜻인지 모르겠다&#10;• 오늘 교수님 표정이 굳어있었고 말씀이 짧으셨다&#10;• 메일에 답장이 3일째 없다"
+          placeholder="예시:&#10;• 오늘 그녀가 '다음 주까지 자료 정리해와'라고 했다&#10;• 카톡으로 '잠깐 들러'라고만 왔는데 뭔 뜻인지 모르겠다&#10;• 오늘 그녀 표정이 굳어있었고 말이 짧았다&#10;• 메일에 답장이 3일째 없다"
           className="w-full border rounded-xl px-3 py-2 text-sm resize-none"
           style={{ borderColor: "var(--border)" }}
         />

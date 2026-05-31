@@ -35,11 +35,11 @@ export default function ComposeTab() {
     const logs = getLogs().slice(0, 15);
     const recentLogs = logs.map((l) => `[${l.type}] ${l.summary || l.content}`).join("\n");
 
-    const systemPrompt = `당신은 대학원생이 지도교수님께 보내는 글을 대신 써주는 AI입니다.
-교수님의 성향과 과거 소통 패턴을 바탕으로 가장 적절한 글을 작성해주세요.
+    const systemPrompt = `당신은 대학원생이 지도교수에게 보내는 글을 대신 써주는 AI입니다.
+그녀의 성향과 과거 소통 패턴을 바탕으로 가장 적절한 글을 작성해주세요.
 
-[교수님 프로필]
-이름: ${profile.name || "교수님"}
+[그녀의 프로필]
+이름: ${profile.name || "그녀"}
 커뮤니케이션 스타일: ${profile.commStyle || "미입력"}
 연락 선호 방식: ${profile.contactPref || "미입력"}
 지뢰 포인트: ${profile.landmines || "미입력"}
@@ -53,7 +53,7 @@ ${recentLogs || "없음"}
 - 어조: ${tone}
 - ${composeType === "이메일" ? "제목을 반드시 포함하세요. 형식: 제목: [제목]\n\n[본문]" : ""}
 - ${composeType === "카톡문자" ? "짧고 간결하게, 2-4문장 이내" : ""}
-- 교수님 성향에 맞게 작성하되, 지뢰 포인트를 피하세요.
+- 그녀의 성향에 맞게 작성하되, 지뢰 포인트를 피하세요.
 - 한국어로 작성하세요.
 - 완성된 글만 출력하세요. 설명이나 부연은 필요 없습니다.`;
 
@@ -113,8 +113,8 @@ ${recentLogs || "없음"}
       <div className="rounded-2xl border p-4" style={{ background: "var(--primary-light)", borderColor: "var(--primary)" }}>
         <p className="text-sm font-semibold mb-1" style={{ color: "var(--primary)" }}>✏️ AI 작성</p>
         <p className="text-xs" style={{ color: "var(--primary)" }}>
-          보내고 싶은 내용을 말해주면 AI가 교수님 성향에 맞게 대신 써드립니다.
-          교수님 프로필이 채워질수록 더 정확해집니다.
+          보내고 싶은 내용을 말해주면 AI가 그녀의 성향에 맞게 대신 써드립니다.
+          그녀의 프로필이 채워질수록 더 정확해집니다.
         </p>
       </div>
 
